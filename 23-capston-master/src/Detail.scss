@@ -84,7 +84,7 @@ img {
   position: relative;
   z-index: 2;
   opacity: 0;
-  height: 100px;
+  height: 30px;
 
   animation: fadeIn 0.8s 0.4s ease forwards;
   .title {
@@ -93,6 +93,7 @@ img {
     font-weight: 500;
     line-height: 1.1;
     text-decoration: underline;
+    
     color: $red;
     .underline {
       color: $black;
@@ -104,9 +105,11 @@ img {
   position: relative;
   display: inline;
   z-index: 1;
+  
   margin: 1rem 0 1.5rem 0;
   font-size: 1rem;
   opacity: 0;
+  
   animation: fadeIn 0.8s 0.6s ease forwards;
 }
 
@@ -306,7 +309,9 @@ button {
       font-size: 4.25rem;
       padding: 2.5rem 2.5rem 3rem 2.5rem;
       background: $white;
-      background-color: rgba(0,0,0.6);
+      background-color: white;
+      top:-75px;
+      position: absolute;
     }
   }
   
@@ -317,6 +322,7 @@ button {
   .description {
     font-size: 1.25rem;
     margin: 1rem 0 0 0;
+    
   }
   
   .previous, .next {
