@@ -153,6 +153,7 @@ button {
   padding: 0.25rem 0 0.25rem 0;
   .previous {
     border: 1px solid $black;
+
   }
   .next {
     border-top: 1px solid $black;
@@ -320,8 +321,10 @@ button {
   }
   
   .description {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin: 1rem 0 0 0;
+    
+    //솔
     
   }
   
