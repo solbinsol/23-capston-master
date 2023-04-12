@@ -15,7 +15,7 @@ import MapContainer from "./MapContainer";
 function App() {  
     useEffect(()=>{
     const spanEl = document.querySelector("div label span");
-    const txtArr = ['Web Publisher', 'Front-End Developer', 'Back-End Developer'];
+    const txtArr = ['AI travel recommendation', 'Front-End Developer', 'Back-End Developer'];
     let index = 0;
     let currentTxt = txtArr[index].split("");
     function writeTxt(){

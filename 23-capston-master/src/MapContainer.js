@@ -349,7 +349,10 @@ const MapContainer = () => {
   var customOverlay = new kakao.maps.CustomOverlay({});
   var infowindow = new kakao.maps.InfoWindow({});
 
-  fetch('http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?ServiceKey=8KMplgYAN9tgVfx%2FsZORv4WoX%2F88eLq8oL28%2BZeSzQMxMVkFbTV2SEcvjdnP82q26yb8snTbG7HSgOYeZYO1mw%3D%3D&numOfRows=1&contentTypeId=12&sigunguCode=&cat1=A01&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=AppTest&_type=json')
+  function fetchAttractions(areaCode) {
+    const apiUrl = `http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?ServiceKey=8KMplgYAN9tgVfx%2FsZORv4WoX%2F88eLq8oL28%2BZeSzQMxMVkFbTV2SEcvjdnP82q26yb8snTbG7HSgOYeZYO1mw%3D%3D&numOfRows=1000&contentTypeId=12&areaCode=${areaCode}&sigunguCode=&cat1=A01&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=AppTest&_type=json`;
+  
+    fetch(apiUrl)
       .then(response => response.json())
       .then(data => {
         const items = data.response.body.items.item;
@@ -358,8 +361,6 @@ const MapContainer = () => {
             const content = {
               title: attraction.title,
               latlng: new kakao.maps.LatLng(attraction.mapy, attraction.mapx),
-              /* mapx: String(attraction.mapx),
-              mapy: String(attraction.mapy), */
               addr1: String(attraction.addr1),
               tel: attraction.tel ? String(attraction.tel) : '',
             };
@@ -367,6 +368,8 @@ const MapContainer = () => {
           });
         setAttractions(attractiondict);
       });
+  }
+
 
  /*  var positions = [];
   for (var i = 0; i < Object.keys(attractions).length; i++) {
@@ -488,89 +491,106 @@ function displayArea(area) {
         duration: 350            //확대 애니메이션 시간      
     }});
     // root.render(dv); //솔
-      
+      fetchAttractions(32);
       areaCenter = area.name;      
     } else if (area.name === '경기도') {
       map.setLevel(level, {anchor: new kakao.maps.LatLng(37.5864315, 127.0462765), animate: {
         duration: 350            
     }});
+      fetchAttractions(31);
       areaCenter = area.name;    
     } else if (area.name === '경상남도') {
       map.setLevel(level, {anchor: new kakao.maps.LatLng(35.259787, 128.664734), animate: {
         duration: 350            
     }});
+      fetchAttractions(36);
       areaCenter = area.name;
     } else if (area.name === '경상북도') {
       map.setLevel(level, {anchor: new kakao.maps.LatLng(36.248647, 128.664734), animate: {
         duration: 350            
     }});
+      fetchAttractions(35);
       areaCenter = area.name;
     } else if (area.name === '광주광역시') {
-      map.setLevel(level, {anchor: new kakao.maps.LatLng(35.126033, 126.831302), animate: {
+      map.setLevel(level-2, {anchor: new kakao.maps.LatLng(35.126033, 126.831302), animate: {
         duration: 350            
     }});
+      fetchAttractions(5);
       areaCenter = area.name;
     } else if (area.name === '대구광역시') {
-      map.setLevel(level, {anchor: new kakao.maps.LatLng(35.798838, 128.583052), animate: {
+      map.setLevel(level-2, {anchor: new kakao.maps.LatLng(35.798838, 128.583052), animate: {
         duration: 350            
     }});
+      fetchAttractions(4);
       areaCenter = area.name;
     } else if (area.name === '대전광역시') {
-      map.setLevel(level, {anchor: new kakao.maps.LatLng(36.321655, 127.378953), animate: {
+      map.setLevel(level-2, {anchor: new kakao.maps.LatLng(36.321655, 127.378953), animate: {
         duration: 350            
     }});
+      fetchAttractions(3);
       areaCenter = area.name;
     } else if (area.name === '부산광역시') {
-      map.setLevel(level, {anchor: new kakao.maps.LatLng(35.198362, 129.053922), animate: {
+      map.setLevel(level-2, {anchor: new kakao.maps.LatLng(35.198362, 129.053922), animate: {
         duration: 350            
     }});
+      fetchAttractions(6);
       areaCenter = area.name;
     } else if (area.name === '서울특별시') {
       map.setLevel(level-2, {anchor: new kakao.maps.LatLng(37.5642135, 127.0016985), animate: {
           duration: 350            
       }});
+      fetchAttractions(1);
       areaCenter = area.name;  
     } else if (area.name === '세종특별자치시') {
-      map.setLevel(level, {anchor: new kakao.maps.LatLng(36.5040736, 127.2494855), animate: {
+      map.setLevel(level-2, {anchor: new kakao.maps.LatLng(36.5040736, 127.2494855), animate: {
           duration: 350            
       }});
+      fetchAttractions(8);
       areaCenter = area.name;
     } else if (area.name === '울산광역시') {
-      map.setLevel(level, {anchor: new kakao.maps.LatLng(35.519301, 129.239078), animate: {
+      map.setLevel(level-2, {anchor: new kakao.maps.LatLng(35.519301, 129.239078), animate: {
           duration: 350            
       }});
+      fetchAttractions(7);
       areaCenter = area.name;
     } else if (area.name === '인천광역시') {
-      map.setLevel(level, {anchor: new kakao.maps.LatLng(37.469221, 126.573234), animate: {
+      map.setLevel(level-2, {anchor: new kakao.maps.LatLng(37.469221, 126.573234), animate: {
           duration: 350            
       }});
+      fetchAttractions(2);
       areaCenter = area.name;
     } else if (area.name === '전라남도') {
       map.setLevel(level, {anchor: new kakao.maps.LatLng(34.819400, 126.893113), animate: {
           duration: 350            
       }});
+      fetchAttractions(38);
       areaCenter = area.name;
     } else if (area.name === '전라북도') {
       map.setLevel(level, {anchor: new kakao.maps.LatLng(35.716705, 127.144185), animate: {
           duration: 350            
       }});
+      fetchAttractions(37);
       areaCenter = area.name;
     } else if (area.name === '제주특별자치도') {
-      map.setLevel(level, {anchor: new kakao.maps.LatLng(33.364805, 126.542671), animate: {
+      map.setLevel(level-2, {anchor: new kakao.maps.LatLng(33.240223, 126.557894), animate: {
           duration: 350            
       }});
+      fetchAttractions(39);
       areaCenter = area.name;
     } else if (area.name === '충청남도') {
       map.setLevel(level, {anchor: new kakao.maps.LatLng(36.557229, 126.779757), animate: {
           duration: 350            
       }});
+      fetchAttractions(34);
       areaCenter = area.name;
     } else if (area.name === '충청북도') {
       map.setLevel(level, {anchor: new kakao.maps.LatLng(36.628503, 127.929344), animate: {
           duration: 350            
       }});
+      fetchAttractions(33);
       areaCenter = area.name;
     }   
+   
     
       
     polygon.setMap(null);

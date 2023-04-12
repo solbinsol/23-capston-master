@@ -231,10 +231,10 @@ const Detail = () =>{
         </head>
               <body>
         <nav class="flex-nav">
-  <div class="container">
+  <div class="container" id="Con">
     <div class="grid">
       <div class="column-xs-9 column-md-8">
-        <p id="logo">Japan<span id="highlight">.</span></p>
+        <p id="logo">Wanderer<span id="highlight">.</span></p>
       </div>
       <div class="column-xs-3 column-md-4">
         <a href="#" class="toggle-nav">Menu <i class="ion-navicon-round"></i></a>
